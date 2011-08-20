@@ -1,6 +1,129 @@
-ModelOne:
+Account:
+  - user_id: integer
+  - assigned_to: integer
   - name: string
+  - description: text
+  - access: integer
 
-ModelTwo:
-  - model_one: references
+AccountContact:
+  - account_id: integer
+  - contact_id: integer
+
+Activity:
+  - user_id: integer
+  - actable_id: integer
+  - actable_type: string(32)
+  - action: string
+  - info: string
+  - private: boolean
+
+Address:
+  - street_1: string
+  - street_2: string
+  - city: string
+  - state: string
+  - zipcode: string(16)
+  - country: string
+  - full_address: string
+  - address_type: string(32)
+  - addressable_id: integer
+  - addressable_type: string
+
+Campaign:
+  - user_id: integer
+  - assigned_to: integer
   - name: string
+  - description: text
+  - objectives: text
+  - access: integer
+  - status: integer
+  - target_leads: integer
+  - target_conversion: integer
+  - budget: decimal
+  - revenue: revenue
+
+Contact:
+  - user_id: integer
+  - lead_id: integer
+  - assigned_to: integer
+  - reports_to: integer
+  - first_name: string
+  - last_name: string
+  - description: text
+  - access: integer
+  - title: string
+  - department: string
+  - source: integer
+  - born_on: date
+
+ContactData:
+  - contactable_id: integer
+  - contactable_type: string(32)
+  - do_not_call: integer
+  - preferred_contact: integer
+  - phone: string
+  - fax: string
+  - email: string
+  - website: string
+  - blog: string
+  - linked_in: string
+  - facebook: string
+  - twitter: string
+  - skype: string
+
+Email:
+  - imap_message_id: integer
+  - user_id: integer
+  - emailable_id: integer
+  - emailable_type: string(32)
+  - sent_from: string
+  - sent_to: string
+  - cc: string
+  - subject: string
+  - body: string
+  - sent_at: datetime
+  - received_at: datetime
+
+Lead:
+  - user_id: integer
+  - campaign_id: integer
+  - assigned_to: integer
+  - first_name: string
+  - last_name: string
+  - description: text
+  - access: integer
+  - title: string
+  - department: string
+  - status: integer
+  - source: integer
+  - referred_by: string
+  - rating: integer
+
+Opportunity:
+  - user_id: integer
+  - campaign_id: integer
+  - account_id: integer
+  - contact_id: integer
+  - assigned_to: integer
+  - name: string
+  - description: text
+  - access: integer
+  - source: integer
+  - stage: integer
+  - probability: integer(4)
+  - amount: 'decimal(12, 2)'
+  - discount: 'decimal(12, 2)'
+  - closes_on: date
+
+Task:
+  - user_id: integer
+  - assigned_to: integer
+  - completed_by: integer
+  - name: string
+  - taskable_id: integer
+  - taskable_type: string(32)
+  - task_priority_id: integer
+  - task_due_id: integer
+  - task_category_id: integer
+  - due_at: datetime
+  - completed_at: datetime

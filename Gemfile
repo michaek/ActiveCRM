@@ -20,6 +20,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem "uuidtools"
 gem "jquery_ui_rails_helpers", :git => "git://github.com/beardedstudio/jquery_ui_rails_helpers.git"
 gem 'awesome_nested_set'
+gem 'acts_as_commentable', :git => 'git://github.com/ramblex/acts_as_commentable.git'
 
 # Admin interface
 gem "meta_search",    '>= 1.1.0.pre' # required by activeadmin
