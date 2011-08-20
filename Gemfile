@@ -5,6 +5,8 @@ gem 'rails', '3.1.0.rc6'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'sqlite3'
+
 # controller/view
 gem 'simple_form'
 gem 'haml'
@@ -22,6 +24,9 @@ gem 'awesome_nested_set'
 # Admin interface
 gem "meta_search",    '>= 1.1.0.pre' # required by activeadmin
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+
+# Soft delete
+gem 'acts_as_archive'
 
 # Gems used only for assets and not required
 # in production environments by default.

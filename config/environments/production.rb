@@ -48,4 +48,7 @@ Npvault::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # Root URL for use in email.
+  config.action_mailer.default_url_options = { :host => 'npvault.com' }
 end
