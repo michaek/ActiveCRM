@@ -1,0 +1,17 @@
+= simple_form_for @task, :url => @task.new_record? ? collection_path : resource_path do |form|
+  = render :partial => 'shared/form_errors', :locals => {:form_object => @project}
+
+  = form.input :user_id, :label => 'User'
+  = form.input :assigned_to, :label => 'Assigned To'
+  = form.input :completed_by, :label => 'Completed By'
+  = form.input :name, :label => 'Name'
+  = form.input :taskable_id, :label => 'Taskable'
+  = form.input :taskable_type, :label => 'Taskable Type'
+  = form.input :task_priority_id, :label => 'Task Priority'
+  = form.input :task_due_id, :label => 'Task Due'
+  = form.input :task_category_id, :label => 'Task Category'
+  = form.input :due_at, :label => 'Due At'
+  = form.input :completed_at, :label => 'Completed At'
+
+  .actions
+    = form.button :submit

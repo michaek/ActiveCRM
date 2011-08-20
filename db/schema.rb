@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820185639) do
+ActiveRecord::Schema.define(:version => 20110820225460) do
+
+  create_table "account_contacts", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "contact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "accounts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "assigned_to"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "access"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -27,6 +44,167 @@ ActiveRecord::Schema.define(:version => 20110820185639) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "activities", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "actable_id"
+    t.string   "actable_type"
+    t.string   "action"
+    t.string   "info"
+    t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "addresses", :force => true do |t|
+    t.string   "street_1"
+    t.string   "street_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "country"
+    t.string   "full_address"
+    t.integer  "address_type"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "campaigns", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "assigned_to"
+    t.string   "name"
+    t.text     "description"
+    t.text     "objectives"
+    t.integer  "access"
+    t.integer  "status"
+    t.integer  "target_leads"
+    t.integer  "target_conversion"
+    t.decimal  "budget"
+    t.decimal  "revenue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "contact_data", :force => true do |t|
+    t.integer  "contactable_id"
+    t.string   "contactable_type"
+    t.integer  "do_not_call"
+    t.integer  "preferred_contact"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "website"
+    t.string   "blog"
+    t.string   "linked_in"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "skype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "lead_id"
+    t.integer  "assigned_to"
+    t.integer  "reports_to"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
+    t.integer  "access"
+    t.string   "title"
+    t.string   "department"
+    t.integer  "source"
+    t.date     "born_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "emails", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "emailable_id"
+    t.string   "emailable_type"
+    t.string   "imap_message_id"
+    t.string   "sent_from"
+    t.string   "sent_to"
+    t.string   "cc"
+    t.string   "subject"
+    t.string   "body"
+    t.datetime "sent_at"
+    t.datetime "received_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leads", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.integer  "assigned_to"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
+    t.integer  "access"
+    t.string   "title"
+    t.string   "department"
+    t.integer  "status"
+    t.integer  "source"
+    t.string   "referred_by"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "opportunities", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.integer  "account_id"
+    t.integer  "contact_id"
+    t.integer  "assigned_to"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "access"
+    t.integer  "source"
+    t.integer  "stage"
+    t.integer  "probability"
+    t.decimal  "amount"
+    t.decimal  "discount"
+    t.date     "closes_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "assigned_to"
+    t.integer  "completed_by"
+    t.string   "name"
+    t.integer  "taskable_id"
+    t.string   "taskable_type"
+    t.integer  "task_priority"
+    t.integer  "task_due"
+    t.integer  "task_category"
+    t.datetime "due_at"
+    t.datetime "completed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

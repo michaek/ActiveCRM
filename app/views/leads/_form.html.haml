@@ -1,0 +1,19 @@
+= simple_form_for @lead, :url => @lead.new_record? ? collection_path : resource_path do |form|
+  = render :partial => 'shared/form_errors', :locals => {:form_object => @project}
+
+  = form.input :user_id, :label => 'User'
+  = form.input :campaign_id, :label => 'Campaign'
+  = form.input :assigned_to, :label => 'Assigned To'
+  = form.input :first_name, :label => 'First Name'
+  = form.input :last_name, :label => 'Last Name'
+  = form.input :description, :label => 'Description'
+  = form.input :access, :label => 'Access'
+  = form.input :title, :label => 'Title'
+  = form.input :department, :label => 'Department'
+  = form.input :status, :label => 'Status'
+  = form.input :source, :label => 'Source'
+  = form.input :referred_by, :label => 'Referred By'
+  = form.input :rating, :label => 'Rating'
+
+  .actions
+    = form.button :submit

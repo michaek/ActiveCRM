@@ -12,7 +12,7 @@ AccountContact:
 Activity:
   - user_id: integer
   - actable_id: integer
-  - actable_type: string(32)
+  - actable_type: string
   - action: string
   - info: string
   - private: boolean
@@ -22,10 +22,10 @@ Address:
   - street_2: string
   - city: string
   - state: string
-  - zipcode: string(16)
+  - zipcode: string
   - country: string
   - full_address: string
-  - address_type: string(32)
+  - address_type: integer
   - addressable_id: integer
   - addressable_type: string
 
@@ -40,7 +40,7 @@ Campaign:
   - target_leads: integer
   - target_conversion: integer
   - budget: decimal
-  - revenue: revenue
+  - revenue: decimal
 
 Contact:
   - user_id: integer
@@ -58,7 +58,7 @@ Contact:
 
 ContactData:
   - contactable_id: integer
-  - contactable_type: string(32)
+  - contactable_type: string
   - do_not_call: integer
   - preferred_contact: integer
   - phone: string
@@ -72,10 +72,10 @@ ContactData:
   - skype: string
 
 Email:
-  - imap_message_id: integer
   - user_id: integer
   - emailable_id: integer
-  - emailable_type: string(32)
+  - emailable_type: string
+  - imap_message_id: string
   - sent_from: string
   - sent_to: string
   - cc: string
@@ -110,9 +110,9 @@ Opportunity:
   - access: integer
   - source: integer
   - stage: integer
-  - probability: integer(4)
-  - amount: 'decimal(12, 2)'
-  - discount: 'decimal(12, 2)'
+  - probability: integer
+  - amount: decimal
+  - discount: decimal
   - closes_on: date
 
 Task:
@@ -121,9 +121,9 @@ Task:
   - completed_by: integer
   - name: string
   - taskable_id: integer
-  - taskable_type: string(32)
-  - task_priority_id: integer
-  - task_due_id: integer
-  - task_category_id: integer
+  - taskable_type: string
+  - task_priority: integer
+  - task_due: integer
+  - task_category: integer
   - due_at: datetime
   - completed_at: datetime

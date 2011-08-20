@@ -1,0 +1,21 @@
+%h1 Listing account_contacts
+
+%table
+  %tr
+    %th Account
+    %th Contact
+    %th
+    %th
+    %th
+
+  - @account_contacts.each do |account_contact|
+    %tr
+      %td= account_contact.account_id
+      %td= account_contact.contact_id
+      %td= link_to 'Show', account_contact
+      %td= link_to 'Edit', edit_account_contact_path(account_contact)
+      %td= link_to 'Destroy', account_contact, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Account contact', new_account_contact_path

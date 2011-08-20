@@ -1,0 +1,39 @@
+%h1 Listing emails
+
+%table
+  %tr
+    %th Imap message
+    %th User
+    %th Emailable
+    %th Emailable type
+    %th Sent from
+    %th Sent to
+    %th Cc
+    %th Subject
+    %th Body
+    %th Sent at
+    %th Received at
+    %th
+    %th
+    %th
+
+  - @emails.each do |email|
+    %tr
+      %td= email.imap_message_id
+      %td= email.user_id
+      %td= email.emailable_id
+      %td= email.emailable_type
+      %td= email.sent_from
+      %td= email.sent_to
+      %td= email.cc
+      %td= email.subject
+      %td= email.body
+      %td= email.sent_at
+      %td= email.received_at
+      %td= link_to 'Show', email
+      %td= link_to 'Edit', edit_email_path(email)
+      %td= link_to 'Destroy', email, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Email', new_email_path

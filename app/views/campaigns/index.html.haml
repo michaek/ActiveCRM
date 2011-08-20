@@ -1,0 +1,39 @@
+%h1 Listing campaigns
+
+%table
+  %tr
+    %th User
+    %th Assigned to
+    %th Name
+    %th Description
+    %th Objectives
+    %th Access
+    %th Status
+    %th Target leads
+    %th Target conversion
+    %th Budget
+    %th Revenue
+    %th
+    %th
+    %th
+
+  - @campaigns.each do |campaign|
+    %tr
+      %td= campaign.user_id
+      %td= campaign.assigned_to
+      %td= campaign.name
+      %td= campaign.description
+      %td= campaign.objectives
+      %td= campaign.access
+      %td= campaign.status
+      %td= campaign.target_leads
+      %td= campaign.target_conversion
+      %td= campaign.budget
+      %td= campaign.revenue
+      %td= link_to 'Show', campaign
+      %td= link_to 'Edit', edit_campaign_path(campaign)
+      %td= link_to 'Destroy', campaign, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Campaign', new_campaign_path

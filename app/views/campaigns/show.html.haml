@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @campaign.user_id
+%p
+  %b Assigned to:
+  = @campaign.assigned_to
+%p
+  %b Name:
+  = @campaign.name
+%p
+  %b Description:
+  = @campaign.description
+%p
+  %b Objectives:
+  = @campaign.objectives
+%p
+  %b Access:
+  = @campaign.access
+%p
+  %b Status:
+  = @campaign.status
+%p
+  %b Target leads:
+  = @campaign.target_leads
+%p
+  %b Target conversion:
+  = @campaign.target_conversion
+%p
+  %b Budget:
+  = @campaign.budget
+%p
+  %b Revenue:
+  = @campaign.revenue
+
+= link_to 'Edit', edit_campaign_path(@campaign)
+\|
+= link_to 'Back', campaigns_path
