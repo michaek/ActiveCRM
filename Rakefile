@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Npvault::Application.load_tasks
+ActiveCRM::Application.load_tasks

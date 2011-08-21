@@ -1,4 +1,4 @@
-Npvault::Application.configure do
+ActiveCRM::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -27,4 +27,5 @@ Npvault::Application.configure do
   
   # Root URL for use in email.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
 end

@@ -16,15 +16,14 @@ gem 'validation_reflection'
 gem 'jquery-rails' # rails generate jquery:install --ui
 gem 'crummy'
 gem "semantic_menu", :git => "git://github.com/michaek/semantic_menu.git"
-gem "will_paginate", "~> 3.0.pre2"
 gem "uuidtools"
 gem "jquery_ui_rails_helpers", :git => "git://github.com/beardedstudio/jquery_ui_rails_helpers.git"
 gem 'awesome_nested_set'
-gem 'acts_as_commentable', :git => 'git://github.com/ramblex/acts_as_commentable.git'
 
 # Admin interface
 gem "meta_search",    '>= 1.1.0.pre' # required by activeadmin
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+gem 'activecrm_members', :git => '/Users/michael/Library/Dev/activecrm_members/'
 
 # Soft delete
 gem 'acts_as_archive'

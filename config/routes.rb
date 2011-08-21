@@ -1,4 +1,4 @@
-Npvault::Application.routes.draw do
+ActiveCRM::Application.routes.draw do
   resources :tasks
 
   resources :opportunities

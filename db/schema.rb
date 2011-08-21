@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110820225460) do
+ActiveRecord::Schema.define(:version => 20110821204800) do
 
   create_table "account_contacts", :force => true do |t|
     t.integer  "account_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "assigned_to"
+    t.integer  "assigned_to_id"
     t.string   "name"
     t.text     "description"
     t.integer  "access"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
 
   create_table "campaigns", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "assigned_to"
+    t.integer  "assigned_to_id"
     t.string   "name"
     t.text     "description"
     t.text     "objectives"
@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
   create_table "contacts", :force => true do |t|
     t.integer  "user_id"
     t.integer  "lead_id"
-    t.integer  "assigned_to"
-    t.integer  "reports_to"
+    t.integer  "assigned_to_id"
+    t.integer  "reports_to_id"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "description"
@@ -133,6 +133,21 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
     t.string   "department"
     t.integer  "source"
     t.date     "born_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "login_id"
+  end
+
+  create_table "contributions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.decimal  "amount"
+    t.text     "breakdown"
+    t.integer  "source"
+    t.integer  "gift"
+    t.date     "pledged_on"
+    t.date     "received_on"
+    t.date     "cleared_on"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -156,7 +171,7 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
   create_table "leads", :force => true do |t|
     t.integer  "user_id"
     t.integer  "campaign_id"
-    t.integer  "assigned_to"
+    t.integer  "assigned_to_id"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "description"
@@ -176,7 +191,7 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
     t.integer  "campaign_id"
     t.integer  "account_id"
     t.integer  "contact_id"
-    t.integer  "assigned_to"
+    t.integer  "assigned_to_id"
     t.string   "name"
     t.text     "description"
     t.integer  "access"
@@ -192,7 +207,7 @@ ActiveRecord::Schema.define(:version => 20110820225460) do
 
   create_table "tasks", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "assigned_to"
+    t.integer  "assigned_to_id"
     t.integer  "completed_by"
     t.string   "name"
     t.integer  "taskable_id"
