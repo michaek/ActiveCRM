@@ -28,4 +28,6 @@ ActiveCRM::Application.configure do
   # Root URL for use in email.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
+  config.logger = Logger.new(STDOUT)
+  
 end

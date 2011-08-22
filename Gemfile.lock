@@ -1,6 +1,6 @@
 GIT
   remote: /Users/michael/Library/Dev/activecrm_members/
-  revision: 8c4de9e4405c71f9f4d778125a2143f413914794
+  revision: 13ebd23d8c0b650c97d152370d41c8bdf066a1b3
   specs:
     activecrm_members (0.0.1)
       rails (~> 3.1.0.rc6)

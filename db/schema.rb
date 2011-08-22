@@ -11,23 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821204800) do
+ActiveRecord::Schema.define(:version => 20110822025600) do
 
   create_table "account_contacts", :force => true do |t|
     t.integer  "account_id"
     t.integer  "contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "accounts", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "assigned_to_id"
     t.string   "name"
     t.text     "description"
     t.integer  "access"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "active_admin_comments", :force => true do |t|
@@ -46,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "activities", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "actable_id"
     t.string   "actable_type"
     t.string   "action"
@@ -54,6 +58,9 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.boolean  "private"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "addresses", :force => true do |t|
@@ -69,10 +76,12 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.string   "addressable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "campaigns", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "assigned_to_id"
     t.string   "name"
     t.text     "description"
@@ -85,6 +94,9 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.decimal  "revenue"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "comments", :force => true do |t|
@@ -118,10 +130,12 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.string   "skype"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "contacts", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "lead_id"
     t.integer  "assigned_to_id"
     t.integer  "reports_to_id"
@@ -136,10 +150,12 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "login_id"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "contributions", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "contact_id"
     t.decimal  "amount"
     t.text     "breakdown"
@@ -150,10 +166,12 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.date     "cleared_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "emails", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "emailable_id"
     t.string   "emailable_type"
     t.string   "imap_message_id"
@@ -166,10 +184,12 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.datetime "received_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "leads", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "campaign_id"
     t.integer  "assigned_to_id"
     t.string   "first_name"
@@ -184,10 +204,12 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "opportunities", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "campaign_id"
     t.integer  "account_id"
     t.integer  "contact_id"
@@ -203,12 +225,14 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.date     "closes_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
   end
 
   create_table "tasks", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "assigned_to_id"
-    t.integer  "completed_by"
+    t.integer  "completed_by_id"
     t.string   "name"
     t.integer  "taskable_id"
     t.string   "taskable_type"
@@ -219,6 +243,10 @@ ActiveRecord::Schema.define(:version => 20110821204800) do
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
+    t.integer  "access"
   end
 
   create_table "users", :force => true do |t|

@@ -1,8 +1,0 @@
-= simple_form_for @account_contact, :url => @account_contact.new_record? ? collection_path : resource_path do |form|
-  = render :partial => 'shared/form_errors', :locals => {:form_object => @project}
-
-  = form.input :account_id, :label => 'Account'
-  = form.input :contact_id, :label => 'Contact'
-
-  .actions
-    = form.button :submit

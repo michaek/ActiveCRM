@@ -1,5 +1,9 @@
 ActiveAdmin.register Account do
 
+  filter :assigned_to
+  filter :name
+  filter :access
+
   index do
     column :name
     default_actions

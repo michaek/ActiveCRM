@@ -14,6 +14,7 @@ module CoreModels
           ['Public', 2],
         ]
       end
+      
     end
   end
 

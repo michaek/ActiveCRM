@@ -1,7 +1,9 @@
 ActiveAdmin.register User do
-
+  
+  filter :email
+  
   index do
-    column :name
+    column :email
     default_actions
   end
   

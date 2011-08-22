@@ -4,3 +4,14 @@
 
 // To customize the Active Admin interfaces, add your
 // styles here:
+
+
+form {
+  
+  input[type=text].datepicker {
+    background: #fff url(active_admin_image_path('datepicker/datepicker-input-icon.png')) no-repeat 100% 7px;
+    padding-right: $date-range-filter-input-right-padding;
+    width: $date-range-filter-input-width;
+  }
+  
+}

@@ -28,6 +28,9 @@ gem 'activecrm_members', :git => '/Users/michael/Library/Dev/activecrm_members/'
 # Soft delete
 gem 'acts_as_archive'
 
+# Created/updated/deleted by
+# gem 'record_with_operator', :git => 'git://github.com/nay/record_with_operator.git'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
