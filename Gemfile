@@ -13,12 +13,6 @@ gem 'haml'
 gem 'haml-rails'
 gem 'inherited_resources'
 gem 'validation_reflection'
-gem 'jquery-rails' # rails generate jquery:install --ui
-gem 'crummy'
-gem "semantic_menu", :git => "git://github.com/michaek/semantic_menu.git"
-gem "uuidtools"
-gem "jquery_ui_rails_helpers", :git => "git://github.com/beardedstudio/jquery_ui_rails_helpers.git"
-gem 'awesome_nested_set'
 
 # Admin interface
 gem "meta_search",    '>= 1.1.0.pre' # required by activeadmin
